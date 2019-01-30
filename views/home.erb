@@ -1,1 +1,19 @@
 <h1>Hello</h1>
+
+<% @articles.each do |val| %>
+  <ul>
+    <h2><%= val[:title] %></h2>
+    <p><%= val[:content] %></p>
+    <img src="<%=val[:photo] %>">
+    <span><%=val[:photo] %></span>
+    <p><%= val[:rating] %></p>
+  </ul>
+<% end%>
+
+<% @comments.each do |val| %>
+  <ul>
+    <li><h5>
+      <%= val %>
+    </h5></li>
+  </ul>
+<% end%>

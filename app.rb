@@ -2,11 +2,8 @@ require "sinatra"
 require "sinatra/reloader" if development?
 require_relative "database"
 
-print DB
-print '-------------------'
-print COMMENTS
-
 get "/" do
-  @database = DB
+  @articles = DB
+  @comments = COMMENTS
   erb :home
 end
