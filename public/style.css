@@ -1,14 +1,24 @@
-.col-container {
-  display: table; /* Make the container element behave like a table */
-  width: 100%; /* Set full-width to expand the whole page */
-}
-
-.col {
-  display: table-cell; /* Make elements inside the container behave like table cells */
+.title {
+  font-size: 20px;
+  color: beige;
+  position: absolute;
+  top: 10px;
+  padding-left: 10px;
 }
 
 .articlesImages {
   width: 100%;
+}
+
+.ArticleText {
+  padding: 35px 40px 40px;
+  text-align: justify;
+
+}
+
+.btnReadMore {
+  width: 20%;
+  margin: auto;
 }
 
 .checked {

@@ -1,22 +1,45 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <% @articles.each_with_index do |val, index| %>
-      <div class="col-md-6">
+      <div class="col-md-6 col-lg-4">
         <ul>
-          <h2><%= val[:title] %></h2>
-          <img src="<%=val[:photo] %>" alt="" class="articlesImages">
-          <p class="articlesP"><%= val[:content] %></p>
+          <div>
+            <h2 class="title"><%= val[:title] %></h2>
+            <% if !val[:photo].nil? %>
+              <img src="<%=val[:photo] %>" alt="laptop" class="articlesImages">
+            <% else %>
+            <img src="https://i.ibb.co/mtJzVqt/background-2828269-1280.jpg" alt="neutral image" class="articlesImages">
+            <% end %>
+          </div>
+
+
+          <div class="ArticleText">
+            <p>
+              <span><%= val[:content].slice(0...150) %></span>
+              <span class="collapse" id="<%= "collapseArticleText" + index.to_s %>">
+                <%= val[:content].slice(151...-1) %>
+              </span>
+            </p>
+            <p>
+              <a class="btn btn-light" data-toggle="collapse" href="#<%= "collapseArticleText" + index.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "collapseArticleText" + index.to_s %>">
+                read more
+              </a>
+            </p>
+          </div>
+
           <% val[:rating].to_i.times do |i| %>
             <span class="fa fa-star checked"></span>
           <% end %>
           <% (5-val[:rating].to_i).times do |i| %>
             <span class="fa fa-star"></span>
           <% end %>
+
           <% @comments[index].each do |val3| %>
             <ul>
               <li><span><%= val3 %></span></li>
             </ul>
           <% end%>
+
         </ul>
       </div>
     <% end %>
