@@ -4,9 +4,14 @@
       <div class="col-md-6">
         <ul>
           <h2><%= val[:title] %></h2>
-          <p class="articlesP"><%= val[:content] %></p>
           <img src="<%=val[:photo] %>" alt="" class="articlesImages">
-          <p><%= val[:rating] %></p>
+          <p class="articlesP"><%= val[:content] %></p>
+          <% val[:rating].to_i.times do |i| %>
+            <span class="fa fa-star checked"></span>
+          <% end %>
+          <% (5-val[:rating].to_i).times do |i| %>
+            <span class="fa fa-star"></span>
+          <% end %>
           <% @comments[index].each do |val3| %>
             <ul>
               <li><span><%= val3 %></span></li>
