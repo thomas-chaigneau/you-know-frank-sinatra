@@ -1,15 +1,19 @@
-<h1>Hello</h1>
-
-<% @articles.each_with_index do |val, index| %>
-  <ul>
-    <h2><%= val[:title] %></h2>
-    <p><%= val[:content] %></p>
-    <img src="<%=val[:photo] %>">
-    <p><%= val[:rating] %></p>
-    <% @comments[index].each do |val| %>
-      <ul>
-        <li><span><%= val %></span></li>
-      </ul>
-    <% end%>
-  </ul>
-<% end%>
+<div class="container">
+  <div class="row">
+    <% @articles.each_with_index do |val, index| %>
+      <div class="col-md-6">
+        <ul>
+          <h2><%= val[:title] %></h2>
+          <p class="articlesP"><%= val[:content] %></p>
+          <img src="<%=val[:photo] %>" alt="" class="articlesImages">
+          <p><%= val[:rating] %></p>
+          <% @comments[index].each do |val3| %>
+            <ul>
+              <li><span><%= val3 %></span></li>
+            </ul>
+          <% end%>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
