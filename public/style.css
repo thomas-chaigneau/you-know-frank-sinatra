@@ -5,6 +5,13 @@ h1 {
   margin-bottom: 30px;
 }
 
+#logForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 55px;
+}
+
 p {
   margin-bottom: 5px;
 }
@@ -29,14 +36,15 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 35px;
   text-align: justify;
 }
 
 .collapseReadMoreButton {
-  width: 350px;
-  margin-left: 50px;
+  font-size: 12px;
+  width: 80px;
+  margin-left: 40px;
 }
 
 

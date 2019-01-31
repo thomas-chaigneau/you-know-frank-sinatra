@@ -28,3 +28,8 @@ get "/home" do
   @comments = COMMENTS
   erb :home
 end
+
+get "/allVisitors" do
+  @usersNames = read_usersNames("users.txt")
+  erb :allVisitors
+end

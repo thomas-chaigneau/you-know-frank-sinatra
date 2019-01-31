@@ -20,14 +20,16 @@
               <%= val[:content].slice(151...-1) %><span>   </span>
             </span>
           </p>
-          <a
-            class="btn btn-outline-dark btn-sm collapseReadMoreButton"
-            id="<%= "collapseReadMoreButton" + index.to_s %>"
-            data-toggle="collapse"
-            href="#<%= "collapseArticleText" + index.to_s %>"
-            role="button" aria-expanded="false"
-            aria-controls="<%= "collapseArticleText" + index.to_s %>"
-          >read more</a>
+          <p>
+            <a
+              class="btn btn-outline-dark btn-sm collapseReadMoreButton"
+              id="<%= "collapseReadMoreButton" + index.to_s %>"
+              data-toggle="collapse"
+              href="#<%= "collapseArticleText" + index.to_s %>"
+              role="button" aria-expanded="false"
+              aria-controls="<%= "collapseArticleText" + index.to_s %>"
+            >read more</a>
+          </p>
         </div>
 
         <div class="commentAndRatingContainer">
