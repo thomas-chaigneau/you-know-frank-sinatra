@@ -1,3 +1,18 @@
+h1 {
+  Width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+p {
+  margin-bottom: 5px;
+}
+
+.articlesContainer {
+  margin-bottom: 50px;
+}
+
 .title {
   font-size: 20px;
   color: beige;
@@ -11,16 +26,31 @@
 }
 
 .ArticleText {
-  padding: 35px 40px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 35px;
   text-align: justify;
-
 }
 
-.btnReadMore {
-  width: 20%;
-  margin: auto;
+.collapseReadMoreButton {
+  width: 350px;
+  margin-left: 50px;
 }
+
 
 .checked {
   color: orange;
+}
+
+.commentAndRatingContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-comment {
+  padding-right: 3px;
 }

@@ -1,7 +1,7 @@
 DB = [
   {
     title: "Mon premier article",
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id ratione harum illo, dicta minima rerum quod natus cupiditate voluptatibus rem! Amet reprehenderit voluptatum animi, eligendi quia quos reiciendis veritatis magniHHH.",
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id ratione harum illo, dicta minima rerum quod natus cupiditate voluptatibus rem! Amet reprehenderit voluptatum animi, eligendi quia quos reiciendis veritatis magni.",
     photo: "https://unsplash.it/600?image=0",
     rating: "5"
   },

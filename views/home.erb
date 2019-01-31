@@ -1,47 +1,84 @@
+<h1>Welcome on my super Blog</h1>
 <div class="container-fluid">
   <div class="row">
     <% @articles.each_with_index do |val, index| %>
-      <div class="col-md-6 col-lg-4">
-        <ul>
-          <div>
-            <h2 class="title"><%= val[:title] %></h2>
-            <% if !val[:photo].nil? %>
-              <img src="<%=val[:photo] %>" alt="laptop" class="articlesImages">
-            <% else %>
-            <img src="https://i.ibb.co/mtJzVqt/background-2828269-1280.jpg" alt="neutral image" class="articlesImages">
+      <div class="col-md-6 col-lg-4 articlesContainer">
+        <div>
+          <h2 class="title"><%= val[:title] %></h2>
+          <% if !val[:photo].nil? %>
+            <img src="<%=val[:photo] %>" alt="laptop" class="articlesImages">
+          <% else %>
+          <img src="https://i.ibb.co/mtJzVqt/background-2828269-1280.jpg" alt="neutral image" class="articlesImages">
+          <% end %>
+        </div>
+
+        <div class="ArticleText">
+          <p>
+            <span><%= val[:content].slice(0...150) %></span>
+            <span class="collapse" id="<%= "collapseArticleText" + index.to_s %>">
+              <%= val[:content].slice(151...-1) %><span>   </span>
+            </span>
+          </p>
+          <a
+            class="btn btn-outline-dark btn-sm collapseReadMoreButton"
+            id="<%= "collapseReadMoreButton" + index.to_s %>"
+            data-toggle="collapse"
+            href="#<%= "collapseArticleText" + index.to_s %>"
+            role="button" aria-expanded="false"
+            aria-controls="<%= "collapseArticleText" + index.to_s %>"
+          >read more</a>
+        </div>
+
+        <div class="commentAndRatingContainer">
+          <div class="item1">
+            <% val[:rating].to_i.times do |i| %>
+              <span class="fa fa-star checked"></span>
+            <% end %>
+            <% (5-val[:rating].to_i).times do |i| %>
+              <span class="fa fa-star"></span>
             <% end %>
           </div>
-
-
-          <div class="ArticleText">
-            <p>
-              <span><%= val[:content].slice(0...150) %></span>
-              <span class="collapse" id="<%= "collapseArticleText" + index.to_s %>">
-                <%= val[:content].slice(151...-1) %>
-              </span>
-            </p>
-            <p>
-              <a class="btn btn-light" data-toggle="collapse" href="#<%= "collapseArticleText" + index.to_s %>" role="button" aria-expanded="false" aria-controls="<%= "collapseArticleText" + index.to_s %>">
-                read more
-              </a>
-            </p>
-          </div>
-
-          <% val[:rating].to_i.times do |i| %>
-            <span class="fa fa-star checked"></span>
-          <% end %>
-          <% (5-val[:rating].to_i).times do |i| %>
-            <span class="fa fa-star"></span>
-          <% end %>
-
-          <% @comments[index].each do |val3| %>
-            <ul>
-              <li><span><%= val3 %></span></li>
-            </ul>
-          <% end%>
-
-        </ul>
+          <a
+            class="btn btn-secondary collapseCommentsButton"
+            id="<%= "collapseCommentsButton" + index.to_s %>"
+            data-toggle="collapse"
+            href="#<%= "collapseComments" + index.to_s %>"
+            role="button"
+            aria-expanded="false"
+            aria-controls="<%= "collapseComments" + index.to_s %>"
+          >show comments</a>
+        </div>
+        <div>
+          <p>
+            <% @comments[index].each do |val| %>
+              <ul class="collapse" id="<%= "collapseComments" + index.to_s %>">
+                <% if val == "Nul" %>
+                  <em>There are no comments yet</em>
+                <% else %>
+                  <i class="fa fa-comment" aria-hidden="true"></i><span>   <%= val %></span>
+                <% end %>
+              </ul>
+            <% end%>
+          </p>
+        </div>
       </div>
     <% end %>
   </div>
 </div>
+
+
+<script>
+const articlesNumber = document.querySelectorAll(".collapseCommentsButton").length
+for (let articleIndex = 0; articleIndex < articlesNumber; articleIndex++) {
+    document.getElementById("collapseCommentsButton" + articleIndex).onclick = () => {
+    if (document.getElementById("collapseCommentsButton" + articleIndex).innerHTML === 'show comments')
+      document.getElementById("collapseCommentsButton" + articleIndex).innerHTML = 'hide comments';
+    else document.getElementById("collapseCommentsButton" + articleIndex).innerHTML = 'show comments';
+    };
+    document.getElementById("collapseReadMoreButton" + articleIndex).onclick = () => {
+    if (document.getElementById("collapseReadMoreButton" + articleIndex).innerHTML === 'read more')
+      document.getElementById("collapseReadMoreButton" + articleIndex).innerHTML = 'read less';
+    else document.getElementById("collapseReadMoreButton" + articleIndex).innerHTML = 'read more';
+    };
+};
+</script>
