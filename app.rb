@@ -29,7 +29,13 @@ get "/home" do
   erb :home
 end
 
-get "/allVisitors" do
+get "/visitors" do
   @usersNames = read_usersNames("users.txt")
-  erb :allVisitors
+  erb :visitors
+end
+
+get "/visitors/*/*" do
+  @id = params['splat'][0].to_i + 1
+  @name = params['splat'][1]
+  erb :visitorInfos
 end

@@ -1,0 +1,23 @@
+<div class="container pages">
+  <% if @name.nil?%>
+      <ul>
+      <% @usersNames.uniq.each_with_index do |name, index| %>
+        <% if name != '' %>
+        <div class="row">
+          <li class="visitorsList">
+            <a href="mailto:<%= name %>@gmail.com?&body=I found this super service and thought you might like it https://www.skello.io/">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </a>
+            <a href="/visitors/<%= index %>/<%= name %>">
+              <i class="fas fa-user"></i>
+            </a>
+            <%= name %>
+          </li>
+        </div>
+        <% end %>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>You are the first visitor and you didn't register !!</p>
+  <% end %>
+</div>

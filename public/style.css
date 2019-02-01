@@ -1,3 +1,10 @@
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #F2F3F4;
+}
+
 h1 {
   Width: 100%;
   text-align: center;
@@ -5,51 +12,20 @@ h1 {
   margin-bottom: 30px;
 }
 
-#logForm {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 55px;
+.pages {
+  padding-top: 5vw;
+  padding-right: 5vw;
+  padding-left: 5vw;
 }
 
-p {
-  margin-bottom: 5px;
+.pageEE {
+  padding-top: 5vw;
+  padding-right: 5vw;
+  padding-left: 5vw;
 }
 
 .articlesContainer {
   margin-bottom: 50px;
-}
-
-.title {
-  font-size: 20px;
-  color: beige;
-  position: absolute;
-  top: 10px;
-  padding-left: 10px;
-}
-
-.articlesImages {
-  width: 100%;
-}
-
-.ArticleText {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-top: 35px;
-  text-align: justify;
-}
-
-.collapseReadMoreButton {
-  font-size: 12px;
-  width: 80px;
-  margin-left: 40px;
-}
-
-
-.checked {
-  color: orange;
 }
 
 .commentAndRatingContainer {
@@ -59,6 +35,49 @@ p {
   align-items: center;
 }
 
+.articlesTitles {
+  font-size: 20px;
+  color: beige;
+  position: absolute;
+  top: 10px;
+  padding-left: 10px;
+}
+
+.articlesImages {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.articlesParagraph {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 35px;
+  text-align: justify;
+}
+
+.readMoreButton {
+  font-size: 12px;
+  width: 80px;
+  margin-left: 40px;
+}
+
+.checked {
+  color: orange;
+}
+
+.visitorsList {
+  padding-top: 1.5vw;
+  text-align: center;
+  list-style: none;
+}
+
 .fa-comment {
   padding-right: 3px;
+}
+
+.fa-envelope, .fa-user {
+  padding-left: 5px;
+  padding-right: 5px;
 }

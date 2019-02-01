@@ -5,7 +5,7 @@
     <% @articles.each_with_index do |val, index| %>
       <div class="col-md-6 col-lg-4 articlesContainer">
         <div>
-          <h2 class="title"><%= val[:title] %></h2>
+          <h2 class="articlesTitles"><%= val[:title] %></h2>
           <% if !val[:photo].nil? %>
             <img src="<%=val[:photo] %>" alt="laptop" class="articlesImages">
           <% else %>
@@ -13,21 +13,21 @@
           <% end %>
         </div>
 
-        <div class="ArticleText">
+        <div class="articlesParagraph">
           <p>
             <span><%= val[:content].slice(0...150) %></span>
-            <span class="collapse" id="<%= "collapseArticleText" + index.to_s %>">
+            <span class="collapse" id="<%= "collapseArticlesParagraph" + index.to_s %>">
               <%= val[:content].slice(151...-1) %><span>   </span>
             </span>
           </p>
           <p>
             <a
-              class="btn btn-outline-dark btn-sm collapseReadMoreButton"
-              id="<%= "collapseReadMoreButton" + index.to_s %>"
+              class="btn btn-outline-dark btn-sm readMoreButton"
+              id="<%= "readMoreButton" + index.to_s %>"
               data-toggle="collapse"
-              href="#<%= "collapseArticleText" + index.to_s %>"
+              href="#<%= "collapseArticlesParagraph" + index.to_s %>"
               role="button" aria-expanded="false"
-              aria-controls="<%= "collapseArticleText" + index.to_s %>"
+              aria-controls="<%= "collapseArticlesParagraph" + index.to_s %>"
             >read more</a>
           </p>
         </div>
@@ -42,8 +42,8 @@
             <% end %>
           </div>
           <a
-            class="btn btn-secondary collapseCommentsButton"
-            id="<%= "collapseCommentsButton" + index.to_s %>"
+            class="btn btn-secondary readCommentsButton"
+            id="<%= "readCommentsButton" + index.to_s %>"
             data-toggle="collapse"
             href="#<%= "collapseComments" + index.to_s %>"
             role="button"
@@ -71,17 +71,17 @@
 
 
 <script>
-const articlesNumber = document.querySelectorAll(".collapseCommentsButton").length
+const articlesNumber = document.querySelectorAll(".articlesContainer").length
 for (let articleIndex = 0; articleIndex < articlesNumber; articleIndex++) {
-    document.getElementById("collapseCommentsButton" + articleIndex).onclick = () => {
-    if (document.getElementById("collapseCommentsButton" + articleIndex).innerHTML === 'show comments')
-      document.getElementById("collapseCommentsButton" + articleIndex).innerHTML = 'hide comments';
-    else document.getElementById("collapseCommentsButton" + articleIndex).innerHTML = 'show comments';
+    document.getElementById("readCommentsButton" + articleIndex).onclick = () => {
+    if (document.getElementById("readCommentsButton" + articleIndex).innerHTML === 'show comments')
+      document.getElementById("readCommentsButton" + articleIndex).innerHTML = 'hide comments';
+    else document.getElementById("readCommentsButton" + articleIndex).innerHTML = 'show comments';
     };
-    document.getElementById("collapseReadMoreButton" + articleIndex).onclick = () => {
-    if (document.getElementById("collapseReadMoreButton" + articleIndex).innerHTML === 'read more')
-      document.getElementById("collapseReadMoreButton" + articleIndex).innerHTML = 'read less';
-    else document.getElementById("collapseReadMoreButton" + articleIndex).innerHTML = 'read more';
+    document.getElementById("readMoreButton" + articleIndex).onclick = () => {
+    if (document.getElementById("readMoreButton" + articleIndex).innerHTML === 'read more')
+      document.getElementById("readMoreButton" + articleIndex).innerHTML = 'read less';
+    else document.getElementById("readMoreButton" + articleIndex).innerHTML = 'read more';
     };
 };
 </script>
